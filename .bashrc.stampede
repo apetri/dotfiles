@@ -1,0 +1,45 @@
+#apetri specific settings
+
+#set default permissions on newly created files and directories
+umask 027
+
+#Source git-prompt.sh
+source ~/.git-prompt.sh
+source ~/.git-completion.sh
+export GIT_PS1_SHOWDIRTYSTATE=1
+
+#Display correct prompt
+export PS1='\[$(tput bold)\]\[$(tput setaf 2)\]\t \[$(tput setaf 2)\][\[$(tput setaf 0)\]\u\[$(tput setaf 1)\]@\[$(tput setaf 0)\]\h \[$(tput setaf 6)\]\W\[$(tput setaf 2)\]]\[$(tput setaf 4)\]$(__git_ps1 " (%s)")\\$ \[$(tput sgr0)\]'
+
+#Select the correct system specific Makefiles
+export THIS='Stampede'
+
+#Load tips module
+module load tacc_tips
+
+#Load git module
+module load git
+
+#Load fftw-2.1.5 and fftw-3.3.2 modules
+module load fftw2
+module load fftw3
+
+#Load gsl module
+module load gsl
+
+#Load valgrind module for memory check
+module load valgrind
+
+#Load in R moduke
+module load R
+
+#python paths
+module load python
+export PYTHONPATH="/home1/02918/apetri/.local/lib/python2.7/site-packages:$PYTHONPATH"
+alias ipython-no-mpi="ipython -i ~/.local/python_start_no-mpi.py"
+
+#DE Simulation Batch pythonpath
+export PYTHONPATH="/home1/02918/apetri/DEBatch:$PYTHONPATH"
+
+#fitsheader path
+export PATH="/home1/02918/apetri/.local/bin:$PATH"
